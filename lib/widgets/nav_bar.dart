@@ -5,38 +5,26 @@ class NavBar extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      height: 56,
-      color: Colors.blue,
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-        children: [
-          IconButton(
-            icon: const Icon(Icons.home),
-            onPressed: () {
-              // Handle home button press
-            },
-          ),
-          IconButton(
-            icon: const Icon(Icons.search),
-            onPressed: () {
-              // Handle search button press
-            },
-          ),
-          IconButton(
-            icon: const Icon(Icons.notifications),
-            onPressed: () {
-              // Handle notifications button press
-            },
-          ),
-          IconButton(
-            icon: const Icon(Icons.settings),
-            onPressed: () {
-              // Handle settings button press
-            },
-          ),
-        ],
-      ),
+    return AppBar(
+      title: const Text('Top Navigation Bar'),
+      actions: _buildNavBarButtons(context),
+    );
+  }
+
+  List<Widget> _buildNavBarButtons(BuildContext context) {
+    return [
+      'Faculty',
+      'Student',
+      'Logout',
+    ].map((label) => _buildButton(context, label)).toList();
+  }
+
+  Widget _buildButton(BuildContext context, String label) {
+    return TextButton(
+      onPressed: () {
+        Navigator.pushNamed(context, '/${label.toLowerCase()}');
+      },
+      child: Text(label),
     );
   }
 }
