@@ -13,7 +13,7 @@ class Student {
 class StudentPage extends StatelessWidget {
   final List<Student> students;
 
-  const StudentPage({super.key, required this.students});
+  const StudentPage({Key? key, required this.students}) : super(key: key);
 
   DataRow getRow(Student student) {
     return DataRow(cells: [

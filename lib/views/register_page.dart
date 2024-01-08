@@ -14,7 +14,7 @@ class RegisterPage extends StatefulWidget {
   final VoidCallback onLogin;
   final VoidCallback onRegister;
 
-  const RegisterPage({super.key, required this.onLogin, required this.onRegister});
+  const RegisterPage({Key? key, required this.onLogin, required this.onRegister}) : super(key: key);
 
   @override
   RegisterPageState createState() => RegisterPageState();
